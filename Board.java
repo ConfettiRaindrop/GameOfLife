@@ -36,26 +36,33 @@ public class Board {
         int count = 0;
         if ((col - 1) > -1) { //up
             count += checkAlive(row, col - 1);
-        } else if ((col + 1) < 9) { //down
+        }
+        if ((col + 1) < 9) { //down
             count += checkAlive(row, col + 1);
-        } else if ((row + 1) < 9) { //right
+        }
+        if ((row + 1) < 9) { //right check
             count += checkAlive(row + 1, col);
-        } else if ((row - 1) > -1) { //left
+        }
+        if ((row - 1) > -1) { //left check
             count += checkAlive(row - 1, col);
-        } else if (((col - 1) > -1) && ((row + 1) < 9)) { //up + right
+        }
+        if (((col - 1) > -1) && ((row + 1) < 9)) { //up + right
             count += checkAlive(row + 1, col - 1);
-        } else if (((col + 1) > 9) && ((row + 1) < 9)) { //down + right
+        }
+        if (((col + 1) < 9) && ((row + 1) < 9)) { //down + right check
             count += checkAlive(row + 1, col + 1);
-        } else if (((col - 1) > -1) && ((row - 1) > -1)) { //up + left
+        }
+        if (((col - 1) > -1) && ((row - 1) > -1)) { //up + left
             count += checkAlive(row - 1, col - 1);
-        } else if (((col + 1) < 9) && ((row - 1) > -1)) { //down + left
+        }
+        if (((col + 1) < 9) && ((row - 1) > -1)) { //down + left
             count += checkAlive(row - 1, col + 1);
         }
         return count;
     }
 
     public int checkAlive(int row, int col) {
-             if (world[row][col] == "■ ") {
+             if (world[row][col].equals("■ ")) {
                 return 1; //alive
             } else {
                 return 0; //dead
@@ -63,22 +70,26 @@ public class Board {
     }
 
     public void runGame() {
-        while (!extinction()) {
+        System.out.println();
+        int rounds = 0;
+        while (!extinction() && rounds < 10) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     int cellNeighbors = checkAround(i, j);
                     int cellStatus = checkAlive(i, j);
                     if (cellStatus == 1) {
                         if (cellNeighbors == 2) {
-                            continue;
+                            world[i][j] = "■ ";
                         } else if (cellNeighbors == 3) {
-                            continue;
+                            world[i][j] = "■ ";
                         } else {
                             world[i][j] = "◻ ";
                         }
                     } else {
                         if(cellNeighbors == 3) {
                             world[i][j] = "■ ";
+                        } else {
+                            world[i][j] = "◻ ";
                         }
                     }
                     System.out.print(world[i][j]);
@@ -86,6 +97,7 @@ public class Board {
                 System.out.println();
             }
             System.out.println();
+            rounds++;
         }
     }
 
