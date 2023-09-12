@@ -105,7 +105,7 @@ public class Board {
     public void runGame() {
         System.out.println();
         int rounds = 0;
-        while (!extinction() && rounds < 20) {
+        while (!extinction() && rounds < 10) {
             String[][] newWorld = world.clone();
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
