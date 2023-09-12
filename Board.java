@@ -78,6 +78,16 @@ public class Board {
         }
     }
 
+    public String[][] copy(String[][] board) {
+        String[][] newBoard = new String[10][10];
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++) {
+                newBoard[i][j] = board[i][j];
+            }
+        }
+        return newBoard;
+    }
+
     public void testGame() {
         System.out.println("");
         String[][] test_world = {
@@ -105,8 +115,8 @@ public class Board {
     public void runGame() {
         System.out.println();
         int rounds = 0;
-        while (!extinction() && rounds < 10) {
-            String[][] newWorld = world.clone();
+        while (!extinction()) {
+            String[][] newWorld = copy(world);
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     int cellNeighbors = checkAround(i, j);
