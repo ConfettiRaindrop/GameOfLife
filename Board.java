@@ -38,25 +38,25 @@ public class Board {
         if ((row - 1) > -1) { //up
             count += checkAlive(row - 1, col);
         }
-        if ((row + 1) < 9) { //down
+        if ((row + 1) < 10) { //down
             count += checkAlive(row + 1, col);
         }
-        if ((col + 1) < 9) { //right 
+        if ((col + 1) < 10) { //right 
             count += checkAlive(row, col + 1);
         }
         if ((col - 1) > -1) { //left check
             count += checkAlive(row, col - 1);
         }
-        if (((row - 1) > -1) && ((col + 1) < 9)) { //up + right
+        if (((row - 1) > -1) && ((col + 1) < 10)) { //up + right
             count += checkAlive(row - 1, col + 1);
         }
-        if (((col + 1) < 9) && ((row + 1) < 9)) { //down + right 
+        if (((col + 1) < 10) && ((row + 1) < 10)) { //down + right 
             count += checkAlive(row + 1, col + 1);
         }
         if (((col - 1) > -1) && ((row - 1) > -1)) { //up + left
             count += checkAlive(row - 1, col - 1);
         }
-        if (((row + 1) < 9) && ((col - 1) > -1)) { //down + left
+        if (((row + 1) < 10) && ((col - 1) > -1)) { //down + left
             count += checkAlive(row + 1, col - 1);
         }
         return count;
@@ -80,8 +80,8 @@ public class Board {
 
     public String[][] copy(String[][] board) {
         String[][] newBoard = new String[10][10];
-        for(int i = 0; i < 10; i++) {
-            for(int j = 0; j < 10; j++) {
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board[0].length; j++) {
                 newBoard[i][j] = board[i][j];
             }
         }
@@ -91,16 +91,16 @@ public class Board {
     public void testGame() {
         System.out.println("");
         String[][] test_world = {
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "■ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","\u25A0 ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "},
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "}, 
-            {"◻ ", "■ ", "◻ ", "◻ ", "◻ ", "■ ", "■ ", "◻ ","◻ ","■ "}
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "},
+            {"◻ ", "◻ ", "■ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","■ ","■ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","■ ","■ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","■ ","■ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "},
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "}, 
+            {"◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ", "◻ ","◻ ","◻ "}
         };
         for (String[] row : test_world) {
             for (String col : row) {
@@ -117,8 +117,8 @@ public class Board {
         int rounds = 0;
         while (!extinction()) {
             String[][] newWorld = copy(world);
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < world.length; i++) {
+                for (int j = 0; j < world[0].length; j++) {
                     int cellNeighbors = checkAround(i, j);
                     int cellStatus = checkAlive(i, j);
                     if (cellStatus == 1) {

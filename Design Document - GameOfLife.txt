@@ -2,4 +2,4 @@ Design Document
 
 My plan: to create a reimplementation Conway's Game of Life. Because of time restraints and me being unsure as to how long certain steps will take, I plan to first create the board to only be seen on the terminal using the ◻ and ■ characterse to represent cells that are alive and dead, and if I finish with enough time to spare which I shoud be able to, I'll create a UI display to make it neater.
 
-UI:
+UI: create table with javax swing to represent cells and show game
