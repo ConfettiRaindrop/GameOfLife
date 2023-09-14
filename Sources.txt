@@ -1,0 +1,4 @@
+Java syntax - https://www.w3schools.com/java/ 
+Conway's Game of Life Rules - https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life 
+
+Javax Swing (for GUI) - https://docs.oracle.com/javase/tutorial/uiswing/ 
