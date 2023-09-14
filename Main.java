@@ -19,12 +19,20 @@ public class Main {
     JFrame frame = new JFrame("worldOfLife");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    System.out.println(frame.getHeight());
+    System.out.println(frame.getWidth());
+
+    //javax.swing.GroupLayout = new javax.swing.GroupLayout();
+
     frame.pack();
     frame.setVisible(true);
   }
-
   /*
-   * download winx11 on pc to run code - must be on vs code not vm
+   * https://docs.oracle.com/javase/tutorial/uiswing/components/table.html
+   * https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html#SimpleTableDemo
+   * https://docs.oracle.com/javase/tutorial/uiswing/components/componentlist.html
+   * https://docs.oracle.com/javase/tutorial/uiswing/components/index.html
+   * 
    */
 
 }
