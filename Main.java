@@ -23,5 +23,9 @@ public class Main {
     frame.setVisible(true);
   }
 
+  /*
+   * download winx11 on pc to run code - must be on vs code not vm
+   */
+
 }
 
