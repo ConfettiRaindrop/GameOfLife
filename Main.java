@@ -9,20 +9,21 @@ public class Main {
     
     javax.swing.SwingUtilities.invokeLater(new Runnable() {
       public void run() {
-        testUI();
+        createAndShowGUI(game.world);
       }
     });
     //game.runGame();
   }
 
-  public static void testUI() {
+
+
+  public static void createAndShowGUI(String[][] game) {
     JFrame frame = new JFrame("worldOfLife");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    System.out.println(frame.getHeight());
-    System.out.println(frame.getWidth());
-
-    //javax.swing.GroupLayout = new javax.swing.GroupLayout();
+    TableUI newConcentPane = new TableUI(game);
+    newConcentPane.setOpaque(true);
+    frame.setContentPane(newConcentPane);
 
     frame.pack();
     frame.setVisible(true);
