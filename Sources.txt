@@ -1,4 +1,12 @@
 Java syntax - https://www.w3schools.com/java/ 
 Conway's Game of Life Rules - https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life 
+Time Delay - https://javahungry.blogspot.com/2020/10/java-delay.html
 
+Sources I used that didn't end up in the final product but can still be seen in the code
 Javax Swing (for GUI) - https://docs.oracle.com/javase/tutorial/uiswing/ 
+Swing JTables - https://docs.oracle.com/javase/tutorial/uiswing/components/table.html
+
+Java write to file - https://www.baeldung.com/java-write-to-file
+                     https://docs.oracle.com/javase/8/docs/api/java/io/BufferedWriter.html
+
+

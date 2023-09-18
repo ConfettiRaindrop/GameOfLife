@@ -1,3 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
 
 public class Board {
     public String[][] world = new String[10][10];
@@ -109,10 +115,17 @@ public class Board {
             System.out.println("");
         }
         world = test_world;
-        runGame();
+        //runGame();
     }
 
-    public void runGame() {
+    public void runGame(BufferedWriter writer) throws IOException, InterruptedException{
+        for (String[] row : world) {
+            for (String col : row) {
+                writer.write(col);
+            }
+            writer.newLine();
+        }
+        writer.newLine();
         System.out.println();
         int rounds = 0;
         while (!extinction()) {
@@ -137,13 +150,28 @@ public class Board {
                         }
                     }
                     System.out.print(newWorld[i][j]);
+                    writer.write(newWorld[i][j]);
                 }
                 System.out.println();
+                writer.newLine();
             }
             System.out.println();
+            writer.newLine();
+            Thread.sleep((long) 200.0);
             rounds++;
             world = newWorld;
         }
+      
+    }
+    
+    public static void main(String[] args) throws IOException, InterruptedException{
+        BufferedWriter writer = new BufferedWriter(new FileWriter("GOL.txt"));
+        Board game = new Board();
+        game.runGame(writer);
+        
+        writer.flush();
+        writer.close();
+        
     }
 
 }

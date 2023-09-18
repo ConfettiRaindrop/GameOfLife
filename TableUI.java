@@ -39,7 +39,7 @@ public class TableUI extends JPanel {
     
         frame.pack();
         frame.setVisible(true);
-      }
+    }
 
       public static void main(String[] args) {
         Board game = new Board();
@@ -49,7 +49,8 @@ public class TableUI extends JPanel {
             createAndShowGUI(game.world);
           }
         });
-      }
+    }
+
 
 
 }
