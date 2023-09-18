@@ -9,7 +9,8 @@ public class Main {
     
     javax.swing.SwingUtilities.invokeLater(new Runnable() {
       public void run() {
-        createAndShowGUI(game.world);
+        TableUI world = new TableUI(game.world);
+        world.createAndShowGUI(game.world);
       }
     });
     //game.runGame();
@@ -17,17 +18,7 @@ public class Main {
 
 
 
-  public static void createAndShowGUI(String[][] game) {
-    JFrame frame = new JFrame("worldOfLife");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    TableUI newConcentPane = new TableUI(game);
-    newConcentPane.setOpaque(true);
-    frame.setContentPane(newConcentPane);
-
-    frame.pack();
-    frame.setVisible(true);
-  }
   /*
    * https://docs.oracle.com/javase/tutorial/uiswing/components/table.html
    * https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html#SimpleTableDemo
