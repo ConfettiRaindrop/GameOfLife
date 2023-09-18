@@ -10,15 +10,15 @@ public class TableUI extends JPanel {
     public TableUI(String[][] game) { 
         super(new GridLayout(1, 0));
 
-        String[] coulmms = {"this",
-                            "is", 
-                            "a", 
-                            "test"};
-        Object[][] rows = {
-            {"Hello", "World"}, 
-            {"palindrome", "tacocat"}, 
-            {"god", "I", "hope", "this", "works"}
-        };
+        //String[] coulmms = {"this",
+        //                    "is", 
+        //                    "a", 
+        //                    "test"};
+        //Object[][] rows = {
+        //    {"Hello", "World"}, 
+        //    {"palindrome", "tacocat"}, 
+        //    {"god", "I", "hope", "this", "works"}
+        //};
 
         JTable table = new JTable(new MyTableModel());
         table.setPreferredScrollableViewportSize(new Dimension(500, 500));

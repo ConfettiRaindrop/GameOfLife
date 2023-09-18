@@ -1,9 +1,6 @@
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 public class Board {
     public String[][] world = new String[10][10];
@@ -127,7 +124,7 @@ public class Board {
         }
         writer.newLine();
         System.out.println();
-        int rounds = 0;
+        //int rounds = 0;
         while (!extinction()) {
             String[][] newWorld = copy(world);
             for (int i = 0; i < world.length; i++) {
@@ -158,7 +155,7 @@ public class Board {
             System.out.println();
             writer.newLine();
             Thread.sleep((long) 200.0);
-            rounds++;
+            //rounds++;
             world = newWorld;
         }
       
